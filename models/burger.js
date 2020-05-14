@@ -1,17 +1,29 @@
 const orm = require('../config/orm');
 
 const burger = {
-    read: function() {
-        orm.selectAll();
+    read: function(cb) {
+        orm.get('burgers', function(res) {
+            cb(res);
+        });
     },
     
-    post: function() {
-        orm.insertOne();
+    post: function(cols, vals, cb) {
+        orm.post('burgers', cols, vals, function(res) {
+            cb(res);
+        });
     },
   
-    update: function() {
-      orm.updateOne();
-  }
+    update: function(objColVals, condition, cb) {
+      orm.update('burgers', objColVals, condition, function(res) {
+          cb(res);
+      });
+    },
+
+    delete: function(condition, cb) {
+        orm.delete('burgers', condition, function(res) {
+            cb(res);
+        });
+      }
 };
 
 module.exports = burger;
