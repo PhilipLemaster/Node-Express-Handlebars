@@ -7,9 +7,10 @@
             <form class="devour_form">
               <li>
                   <input type="hidden" class="burger_id" value={{this.id}}>
-                  <button type="submit" name="devoured" value="1" >{{burger_name}}</button>
+                  <button type="submit" name="devoured" value="1" class="btn btn-warning" >{{burger_name}}</button>
               </li>
             </form>
+            <br>
             {{/unless}}
         {{/each}}
     </ul>
@@ -20,7 +21,7 @@
   {{#each burgers}}
     {{#if this.devoured}}
       <li>
-          <button type="button">{{burger_name}}</button>
+          <button type="button" class="btn btn-success">{{burger_name}}</button>
       </li>
     {{/if}}
   {{/each}}
@@ -32,5 +33,5 @@
     <label for="ca">Burger Name:</label>
     <input type="text" id="ca" name="burger_name" placeholder="Quadruple Fiesta Burger">
   </div>
-  <button type="submit" name="addIt">Add Burger</button>
+  <button type="submit" name="addIt" class="btn btn-success">Add Burger</button>
 </form>

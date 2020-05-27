@@ -1,10 +1,20 @@
 h1 {
-    margin: auto;
+    text-align: center;
     font-family: 'Chelsea Market', cursive;
-    size: 56px;
 }
 
 h2 {
+    text-align: center;
     margin: auto;
     font-family: 'Balsamiq Sans', cursive;
+}
+
+ul, li, form, button {
+    margin: auto;
+    text-align: center;
+}
+
+body {
+    background-image: url('../img/burgerpaper.jpg');
+    background-repeat: repeat;
 }
