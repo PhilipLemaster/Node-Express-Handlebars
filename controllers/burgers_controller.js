@@ -12,37 +12,40 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/burgers/create', function(req, res) {
+router.post('/api/burgers', function(req, res) {
     burger.post(
         ["burger_name", "devoured"], 
-        [req.body.burger_name, req.body.devoured], 
+        [req.body.burger_name, '0'], 
 
       function() {
         res.redirect('/');
       });
 });
 
-router.put("/burgers/update/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
-    console.log("condition", condition);
+    console.log("Working");
   
-    burger.update({
-      devoured: req.body.devoured
-      }, 
-      condition, function() {
-      res.redirect('/')
-    });
+    burger.update(req.params.id, function(result) {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      } 
+      else {
+        res.status(200).end()
+      }
+    })
 });
 
-router.delete("/burgers/delete/:id", function(req, res) {
+router.delete("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     burger.delete(condition, function(result) {
         if (result.changedRows == 0) {
             return res.status(404).end();
-          } else {
+        } 
+        else {
             res.status(200).end();
-          }
+        }
     });
 });
 
