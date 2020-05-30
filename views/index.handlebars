@@ -5,10 +5,8 @@
         {{#each burgers}}
             {{#unless this.devoured}}
             <form class="devour_form">
-              <li>
                   <input type="hidden" class="burger_id" value={{this.id}}>
-                  <button type="submit" name="devoured" value="1" class="btn btn-warning" >{{burger_name}}</button>
-              </li>
+                  <button type="submit" name="devoured" class="btn btn-warning" >{{burger_name}}</button>
             </form>
             <br>
             {{/unless}}
