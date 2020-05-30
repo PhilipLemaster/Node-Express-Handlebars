@@ -1,11 +1,12 @@
 const mysql = require('mysql');
+const connection;
 
 if (process.env.JAWSDB_URL) {
-    const connection = mysql.createConnection(process.env.JAWSDB_URL);
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
 else {
-    const connection = mysql.createConnection({
+    connection = mysql.createConnection({
         host: 'vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         port: 3306,
         user: 'fyx3otew0scinpqe',
